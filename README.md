@@ -1,0 +1,1 @@
+A small script that uses ffmpeg to convert CinemaPro video material produced by the Sony Xperia 1 & 5 aswell as 1 II & 5 II from HDR to SDR. It also stabilises the video material as CinemaPro only has a very weak electronic image stabilisation.  
