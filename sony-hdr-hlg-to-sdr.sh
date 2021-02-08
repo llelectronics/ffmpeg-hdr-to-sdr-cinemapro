@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Get the static ffmpeg build for linux that supports libzimg (zscale filter)
+# https://johnvansickle.com/ffmpeg/
 
 FFMPEGBIN="/home/leszek/Downloads/ffmpeg-git-20200617-amd64-static/ffmpeg"
 VFPARAM="zscale=t=linear:npl=111,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,eq=gamma=0.7"
