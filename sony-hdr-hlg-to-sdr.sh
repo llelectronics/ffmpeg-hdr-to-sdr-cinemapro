@@ -12,7 +12,7 @@ VFPARAMIMP="zscale=t=linear:npl=256,format=gbrpf32le,zscale=p=bt709,tonemap=tone
 $FFMPEGBIN -i "$1" -vf $VFPARAMIMP -c:v libx264 -crf 7 -preset ultrafast "$2" 
 
 # Stabilisation for CinemaPro shaky footage
-if [ "$3" == "-ns" ]; then
+if [ "$3" == "-ns" || "$4" == "-ns" ]; then
    exit 0;
 else
   $FFMPEGBIN -i "$2" -vf vidstabdetect=stepsize=32:shakiness=10:accuracy=10 -f null -
@@ -20,6 +20,6 @@ else
 fi
 
 # For Youtube Export (16:9 crop and crf 18 [recommended by youtube])
-if [ "$3" == "-yt" ]; then
+if [ "$3" == "-yt" || "$4" == "-yt" ]; then
   $FFMPEGBIN -i "${2::-4}-stabilized.mp4" -filter:v "crop=ih/9*16:ih" -crf 18 -c:a copy "${2::-4}-stabilized-16-9.mp4"
 fi
